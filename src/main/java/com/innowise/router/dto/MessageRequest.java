@@ -1,28 +1,23 @@
-package com.innowise.test.entities;
+package com.innowise.router.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Data
-@Builder(toBuilder = true)
-@Table(name = "message")
-public class MessageEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class MessageRequest {
 
     private String sender;
-
     private LocalDateTime date;
-
     private List<MultipartFile> files;
-
 
 }

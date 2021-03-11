@@ -1,8 +1,8 @@
-package com.innowise.test.services;
+package com.innowise.router.services;
 
-import com.innowise.test.dto.MessageRequest;
-import com.innowise.test.mappers.MessageMapper;
-import com.innowise.test.repositories.MessageRepository;
+import com.innowise.router.dto.MessageRequest;
+import com.innowise.router.mappers.MessageMapper;
+import com.innowise.router.repositories.MessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package com.innowise.test.enums;
+package com.innowise.router.enums;
 
-import com.innowise.test.dto.IncomeFileDto;
-import com.innowise.test.interfacies.FileSignature;
-import com.innowise.test.utils.ArchiveUtils;
+import com.innowise.router.dto.FileContent;
+import com.innowise.router.services.archive.FileSignature;
+import com.innowise.router.utils.ArchiveUtils;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -19,7 +19,7 @@ public enum ArchiveFileType  {
 
     private final byte[] signature;
 
-    private final Function<byte[], List<IncomeFileDto>> unzipFunction;
+    private final Function<byte[], List<FileContent>> unzipFunction;
 
     public static Optional<ArchiveFileType> of(byte[] fileContent){
         return Arrays.stream(ArchiveFileType.values())
@@ -27,7 +27,7 @@ public enum ArchiveFileType  {
                 .findFirst();
     }
 
-    public List<IncomeFileDto> unzipToFileContentList(final byte[] content){
+    public List<FileContent> unzipToFileContentList(final byte[] content){
         return unzipFunction.apply(content);
     }
 
