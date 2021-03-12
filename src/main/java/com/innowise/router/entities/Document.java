@@ -31,5 +31,4 @@ public class Document {
     @JoinColumn(name = "file_id")
     private List<File> files;
 
-
 }

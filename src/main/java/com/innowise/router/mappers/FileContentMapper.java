@@ -7,19 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileContentMapper {
 
-    public File mapToFileIncomeEntity(FileContent fileContent) {
+    public File mapToFile(FileContent fileContent) {
         return File.builder()
                 .fileName(fileContent.getName())
                 .fileExtension(fileContent.getExtension())
-                .data(fileContent.getData())
+                .content(fileContent.getData())
                 .build();
     }
 
-    public FileContent mapToIncomeFileDto(File file) {
-        return FileContent.builder()
-                .name(file.getFileName())
-                .extension(file.getFileExtension())
-                .data(file.getData())
-                .build();
+    public FileContent mapToFileContent(File file) {
+        return new FileContent(file.getFileName(), file.getFileExtension(), file.getContent());
     }
 }
