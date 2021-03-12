@@ -13,7 +13,8 @@ import javax.persistence.*;
 public class File {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "file_id_seq")
+    @SequenceGenerator(name = "file_id_seq", sequenceName = "FILE_ID_SEQUENCE")
     private Long id;
 
     private String fileName;
@@ -21,5 +22,5 @@ public class File {
     private String fileExtension;
 
     @Lob
-    private byte[] data;
+    private byte[] content;
 }
