@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: ${DATASOURCE_URL}
-    username: ${USERNAME}
-    password: ${PASSWORD}
+    url: jdbc:postgresql://localhost:5432/db
+    username: postgres
+    password: 123
     hikari:
-      schema: ${SCHEMA}
+      schema: router
   jpa:
     generate-ddl: false
     show-sql: true
