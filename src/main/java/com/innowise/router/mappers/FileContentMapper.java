@@ -11,7 +11,7 @@ public class FileContentMapper {
         return File.builder()
                 .fileName(fileContent.getName())
                 .fileExtension(fileContent.getExtension())
-                .data(fileContent.getData())
+                .content(fileContent.getData())
                 .build();
     }
 
@@ -19,7 +19,7 @@ public class FileContentMapper {
         return FileContent.builder()
                 .name(file.getFileName())
                 .extension(file.getFileExtension())
-                .data(file.getData())
+                .data(file.getContent())
                 .build();
     }
 }
