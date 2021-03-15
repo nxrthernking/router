@@ -9,8 +9,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -24,11 +26,11 @@ public class DocumentService {
 
     @SneakyThrows
     public void process(MessageRequest messageRequest) {
-        List<File> files = new LinkedList<>();
-        messageRequest.getFiles()
+        List<File> files = messageRequest.getFiles()
                 .stream()
                 .map(fileService::process)
-                .forEach(files::addAll);
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
         Document document = messageMapper.mapToDocument(messageRequest, files);
         documentRepository.save(document);
     }
