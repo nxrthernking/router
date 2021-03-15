@@ -22,6 +22,9 @@ public class FileService {
 
     @SneakyThrows
     public List<File> process(MultipartFile file) {
-        return mapper.mapToFileList(file).stream().map(fileContentMapper::mapToFile).collect(Collectors.toList());
+        return mapper.mapToFileList(file)
+                .stream()
+                .map(fileContentMapper::mapToFile)
+                .collect(Collectors.toList());
     }
 }
