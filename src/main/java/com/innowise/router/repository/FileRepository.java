@@ -1,6 +1,6 @@
-package com.innowise.router.repositories;
+package com.innowise.router.repository;
 
-import com.innowise.router.entities.File;
+import com.innowise.router.entity.File;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

@@ -1,7 +1,7 @@
-package com.innowise.router.mappers;
+package com.innowise.router.mapper;
 
 import com.innowise.router.dto.FileContent;
-import com.innowise.router.entities.File;
+import com.innowise.router.entity.File;
 import org.springframework.stereotype.Component;
 
 @Component

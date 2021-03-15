@@ -1,8 +1,9 @@
-package com.innowise.router.services;
+package com.innowise.router.service;
 
-import com.innowise.router.entities.File;
-import com.innowise.router.mappers.FileContentMapper;
-import com.innowise.router.mappers.MultipartFileMapper;
+import com.innowise.router.entity.File;
+import com.innowise.router.mapper.FileContentMapper;
+import com.innowise.router.mapper.MultipartFileMapper;
+import com.innowise.router.service.archive.ArchiveFileType;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,12 @@ public class FileService {
 
     @SneakyThrows
     public List<File> process(MultipartFile file) {
-        return mapper.mapToFileList(file)
+        return ArchiveFileType.of(file.getBytes())
+                .map(s -> s.unzipToFileContentList(file))
+                .orElse(mapper.mapToFileList(file))
                 .stream()
                 .map(fileContentMapper::mapToFile)
                 .collect(Collectors.toList());
+
     }
 }

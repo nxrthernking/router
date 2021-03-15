@@ -1,4 +1,4 @@
-package com.innowise.router.utils;
+package com.innowise.router.util;
 
 import com.github.junrar.Archive;
 import com.github.junrar.rarfile.FileHeader;
@@ -9,7 +9,6 @@ import org.apache.commons.compress.archivers.sevenz.SevenZArchiveEntry;
 import org.apache.commons.compress.archivers.sevenz.SevenZFile;
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipFile;
-import org.apache.commons.compress.utils.FileNameUtils;
 import org.apache.commons.compress.utils.SeekableInMemoryByteChannel;
 
 import java.io.ByteArrayInputStream;

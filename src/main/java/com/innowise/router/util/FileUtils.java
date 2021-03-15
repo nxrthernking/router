@@ -1,4 +1,4 @@
-package com.innowise.router.utils;
+package com.innowise.router.util;
 
 import lombok.experimental.UtilityClass;
 import org.apache.commons.compress.utils.FileNameUtils;

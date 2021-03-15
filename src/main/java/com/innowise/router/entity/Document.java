@@ -1,4 +1,4 @@
-package com.innowise.router.entities;
+package com.innowise.router.entity;
 
 import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;

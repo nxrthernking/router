@@ -1,8 +1,7 @@
-package com.innowise.router.enums;
+package com.innowise.router.service.archive;
 
 import com.innowise.router.dto.FileContent;
-import com.innowise.router.services.archive.FileSignature;
-import com.innowise.router.utils.ArchiveUtils;
+import com.innowise.router.util.ArchiveUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,9 +1,9 @@
-package com.innowise.router.mappers;
+package com.innowise.router.mapper;
 
 
 import com.innowise.router.dto.MessageRequest;
-import com.innowise.router.entities.Document;
-import com.innowise.router.entities.File;
+import com.innowise.router.entity.Document;
+import com.innowise.router.entity.File;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
