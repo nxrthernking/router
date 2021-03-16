@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.w3ii.com"
+            xmlns="http://www.w3ii.com"
+            elementFormDefault="qualified">
+    <xsd:element name="report">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="shopName" minOccurs="0">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="2"/>
+                            <xsd:maxLength value="30"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="buyers" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="buyer" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="id" minOccurs="0" type="xsd:unsignedLong"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="beginDate" minOccurs="0" type="xsd:date"/>
+                <xsd:element name="endDate" minOccurs="0" type="xsd:date"/>
+                <xsd:element name="seller" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="id" minOccurs="0" type="xsd:unsignedLong"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="TIN" minOccurs="0" type="xsd:unsignedLong"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
