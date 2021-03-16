@@ -11,4 +11,5 @@ public class FileContent {
     private String name;
     private String extension;
     private byte[] data;
+
 }

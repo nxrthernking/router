@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Report",
+  "type": "object",
+  "properties": {
+    "store_name": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "object"
+    },
+    "end_date": {
+      "type": "object"
+    },
+    "seller_id": {
+      "type": "integer"
+    },
+    "customer_id": {
+      "type": "array"
+    },
+    "tin": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "store_name",
+    "start_date",
+    "end_date",
+    "seller_id",
+    "customer_id",
+    "tin"
+  ]
+}

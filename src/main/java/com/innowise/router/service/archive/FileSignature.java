@@ -1,4 +1,4 @@
-package com.innowise.router.services.archive;
+package com.innowise.router.service.archive;
 
 public interface FileSignature {
 

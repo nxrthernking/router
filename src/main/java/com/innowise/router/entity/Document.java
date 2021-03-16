@@ -1,4 +1,4 @@
-package com.innowise.router.entities;
+package com.innowise.router.entity;
 
 import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -30,6 +30,5 @@ public class Document {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "file_id")
     private List<File> files;
-
 
 }

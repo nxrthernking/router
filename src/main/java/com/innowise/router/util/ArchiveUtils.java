@@ -1,4 +1,4 @@
-package com.innowise.router.utils;
+package com.innowise.router.util;
 
 import com.github.junrar.Archive;
 import com.github.junrar.rarfile.FileHeader;
@@ -22,37 +22,30 @@ import java.util.List;
 @UtilityClass
 public class ArchiveUtils {
 
-
     @SneakyThrows
     public List<FileContent> unzipZip(final byte[] content) {
-        List<FileContent> incomeFiles = new LinkedList<>();
+        List<FileContent> files = new LinkedList<>();
         SeekableByteChannel channel = new SeekableInMemoryByteChannel(content);
         try (ZipFile zipFile = new ZipFile(channel)) {
             for (ZipArchiveEntry entry : Collections.list(zipFile.getEntries())) {
-                incomeFiles.add(FileContent.builder()
-                        .name(entry.getName())
-                        .extension("json") // to add parse for extension
-                        .data(zipFile.getInputStream(entry).readAllBytes())
-                        .build());
+                files.add(new FileContent(entry.getName(),FileUtils.getFileExtension(entry.getName()),
+                        zipFile.getInputStream(entry).readAllBytes()));
             }
-            return incomeFiles;
+            return files;
         }
     }
 
     @SneakyThrows
     public List<FileContent> unzipSevenZip(final byte[] content) {
-        List<FileContent> fileContentList = new LinkedList<>();
+        List<FileContent> files = new LinkedList<>();
         SeekableByteChannel channel = new SeekableInMemoryByteChannel(content);
         try (SevenZFile sevenZFile = new SevenZFile(channel)) {
-            for (SevenZArchiveEntry archiveEntry : sevenZFile.getEntries()) {
-                fileContentList.add(FileContent.builder()
-                        .name(archiveEntry.getName())
-                        .extension("json")
-                        .data(sevenZFile.getInputStream(archiveEntry).readAllBytes())
-                        .build());
+            for (SevenZArchiveEntry entry : sevenZFile.getEntries()) {
+                files.add(new FileContent(entry.getName(),
+                        FileUtils.getFileExtension(entry.getName()),sevenZFile.getInputStream(entry).readAllBytes()));
             }
 
-            return fileContentList;
+            return files;
         }
     }
 
@@ -73,8 +66,9 @@ public class ArchiveUtils {
     private void getFileHeader(List<FileContent> files, Archive rarArchive, FileHeader fileHeader) {
         try (ByteArrayOutputStream contentBytes = new ByteArrayOutputStream()) {
             rarArchive.extractFile(fileHeader, contentBytes);
-            // TODO: 11.03.2021  change file name to ext
-            files.add(new FileContent(fileHeader.getFileName(), fileHeader.getFileName(), contentBytes.toByteArray()));
+            files.add(new FileContent(fileHeader.getFileName(),
+                    FileUtils.getFileExtension(fileHeader.getFileName()), contentBytes.toByteArray()));
         }
     }
+
 }

@@ -1,9 +1,10 @@
-package com.innowise.router.enums;
+package com.innowise.router.service.archive;
 
 import com.innowise.router.dto.FileContent;
-import com.innowise.router.services.archive.FileSignature;
-import com.innowise.router.utils.ArchiveUtils;
+import com.innowise.router.util.ArchiveUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,8 +28,13 @@ public enum ArchiveFileType  {
                 .findFirst();
     }
 
-    public List<FileContent> unzipToFileContentList(final byte[] content){
-        return unzipFunction.apply(content);
+    public List<FileContent> unzipToFileContentList(final MultipartFile file){
+        return unzipFunction.apply(getContentAsBytes(file));
+    }
+
+    @SneakyThrows
+    private byte[] getContentAsBytes(MultipartFile file) {
+        return file.getBytes();
     }
 
 
