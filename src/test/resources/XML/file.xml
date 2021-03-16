@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Report>
+    <shopName>almi</shopName>
+    <buyers>
+        <buyer>
+            <id>1</id>
+        </buyer>
+        <buyer>
+            <id>3</id>
+        </buyer>
+    </buyers>
+    <beginDate>2000-11-11</beginDate>
+    <endDate>2001-11-01</endDate>
+    <seller>
+        <id>1</id>
+    </seller>
+    <TIN>1212124223</TIN>
+</Report>
