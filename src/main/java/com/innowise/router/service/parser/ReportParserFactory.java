@@ -1,18 +1,18 @@
-package com.innowise.router.mapper;
+package com.innowise.router.service.parser;
 
 import com.innowise.router.exception.BadFileExtensionException;
-import com.innowise.router.exception.InvalidFileException;
 import com.innowise.router.util.FileUtils;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.UtilityClass;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@Component
 public class ReportParserFactory {
 
-    private final Map<String,FileParser> parserMap;
+    private final Map<String, FileParser> parserMap;
 
     public FileParser getFileParserFromFactory(String filename) {
         return Optional.ofNullable(

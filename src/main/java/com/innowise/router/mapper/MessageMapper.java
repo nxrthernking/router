@@ -11,6 +11,7 @@ import java.util.List;
 
 @Component
 public class MessageMapper {
+
     public Document mapToDocument(MessageRequest messageRequest, List<File> files) {
         return Document.builder()
                 .sender(messageRequest.getSender())

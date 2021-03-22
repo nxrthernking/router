@@ -13,3 +13,6 @@ spring:
 
 client:
   producer: ${PRODUCER_URL:localhost}
+
+flyway:
+  locations: classpath:db/migration

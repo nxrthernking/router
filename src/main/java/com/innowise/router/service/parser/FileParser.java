@@ -1,4 +1,4 @@
-package com.innowise.router.mapper;
+package com.innowise.router.service.parser;
 
 import com.innowise.router.dto.Report;
 

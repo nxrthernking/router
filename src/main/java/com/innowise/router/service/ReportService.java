@@ -3,7 +3,7 @@ package com.innowise.router.service;
 
 import com.innowise.router.dto.Report;
 import com.innowise.router.entity.File;
-import com.innowise.router.mapper.ReportParserFactory;
+import com.innowise.router.service.parser.ReportParserFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

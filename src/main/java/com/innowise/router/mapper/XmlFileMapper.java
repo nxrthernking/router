@@ -1,22 +1,22 @@
 package com.innowise.router.mapper;
 
 import com.innowise.router.dto.Report;
-import com.innowise.router.dto.XMLReport;
+import com.innowise.router.dto.XmlReport;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class XMLFileMapper {
+public class XmlFileMapper {
 
-    public List<Report> mapToReportList(List<XMLReport> xmlReports) {
+    public List<Report> mapToReportList(List<XmlReport> xmlReports) {
         return xmlReports.stream()
                 .map(this::mapToReport)
                 .collect(Collectors.toList());
     }
 
-    private Report mapToReport(XMLReport xmlReport){
+    private Report mapToReport(XmlReport xmlReport){
         return Report.builder()
                 .storeName(xmlReport.getStoreName())
                 .startDate(xmlReport.getStartDate())

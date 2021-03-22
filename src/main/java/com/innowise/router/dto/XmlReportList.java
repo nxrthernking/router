@@ -17,9 +17,9 @@ import java.util.List;
 @NoArgsConstructor
 @XmlRootElement(name = "reports")
 @XmlAccessorType(XmlAccessType.NONE)
-public class XMLReportList {
+public class XmlReportList {
 
     @XmlElement(name = "report", required = true)
-    private List<XMLReport> xmlReports;
+    private List<XmlReport> xmlReports;
 
 }

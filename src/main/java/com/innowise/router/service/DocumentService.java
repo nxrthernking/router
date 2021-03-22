@@ -29,7 +29,7 @@ public class DocumentService {
         List<File> files = getFiles(messageRequest);
         Document document = messageMapper.mapToDocument(messageRequest, files);
         documentRepository.save(document);
-       // reportService.sendReport(files);
+        reportService.sendReport(files);
     }
 
     private List<File> getFiles(MessageRequest messageRequest) {

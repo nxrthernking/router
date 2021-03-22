@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @XmlRootElement(name = "report")
 @XmlAccessorType(value = XmlAccessType.FIELD)
-public class XMLReport {
+public class XmlReport {
     @XmlElement(required = true)
     private String storeName;
     @XmlElement(required = true)

@@ -1,4 +1,4 @@
-package com.innowise.router.mapper;
+package com.innowise.router.service.parser;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.innowise.router.dto.Report;
