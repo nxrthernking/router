@@ -17,6 +17,6 @@ public class Report {
     private LocalDate startDate;
     private LocalDate endDate;
     private String saleId;
-    private List<String> customerId;
+    private List<String> customersId;
     private String tin;
 }
