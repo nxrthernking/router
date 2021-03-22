@@ -14,9 +14,9 @@ class FileServiceTest extends IntegrationTest {
 
     public static List<MockMultipartFile> mockFiles() {
         final Map<String, String> stringStringMap = Map.of(
-                "test.rar", "src/test/json/resources/archive/test.rar",
-                "zip.zip", "src/test/json/resources/archive/zipTest.zip",
-                "sevenZ.7z", "src/test/json/resources/archive/sevenZTest.7z"
+                "test.rar", "src/test/resources/json/archive/test.rar",
+                "zip.zip", "src/test/resources/json/archive/zipTest.zip",
+                "sevenZ.7z", "src/test/resources/json/archive/sevenZTest.7z"
         );
         final ArrayList<MockMultipartFile> mockMultipartFiles = new ArrayList<>();
         stringStringMap.forEach((key, value) -> mockMultipartFiles.add(new MockMultipartFile(key, Util.getBytes(value))));
