@@ -1,0 +1,62 @@
+<xsd:schema  elementFormDefault="qualified"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="reports">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="report" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="storeName">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:minLength value="2"/>
+                                        <xsd:maxLength value="30"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element type="xsd:date" name="startDate"/>
+                            <xsd:element type="xsd:date" name="endDate"/>
+
+                            <xsd:element name="saleId">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:minLength value="1"/>
+                                        <xsd:maxLength value="20"/>
+                                        <xsd:pattern value="([0-9]*)"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+
+                            <xsd:element name="customers">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="customerId" maxOccurs="unbounded">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:minLength value="1"/>
+                                                    <xsd:maxLength value="20"/>
+                                                    <xsd:pattern value="([0-9]*)"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+
+                            <xsd:element name="tin" minOccurs="0">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:minLength value="1"/>
+                                        <xsd:maxLength value="20"/>
+                                        <xsd:pattern value="([0-9]*)"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+
