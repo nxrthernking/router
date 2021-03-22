@@ -59,6 +59,12 @@ public class ArchiveUtils {
                 fileHeader = rarArchive.nextFileHeader();
             }
         }
+//        Archive archive = new Archive(new ByteArrayInputStream(content));
+//        FileHeader fileHeader = archive.nextFileHeader();
+//        while(fileHeader!= null){
+//            getFileHeader(files,archive,fileHeader);
+//            fileHeader = archive.nextFileHeader();
+//        }
         return files;
     }
 

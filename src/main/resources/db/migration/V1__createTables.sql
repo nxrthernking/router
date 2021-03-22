@@ -8,6 +8,6 @@ CREATE TABLE file (
     content oid,
     file_extension VARCHAR (255),
     file_name VARCHAR (255),
-    files_id BIGINT,
+    file_id BIGINT,
     PRIMARY KEY (id));
 
