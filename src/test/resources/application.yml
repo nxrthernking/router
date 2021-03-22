@@ -1,8 +1,11 @@
 spring:
+  cloud:
+    discovery:
+      enabled: false
   datasource:
     url: jdbc:postgresql://localhost:5432/db
     username: postgres
-    password: 123
+    password: root
     hikari:
       schema: router
   jpa:

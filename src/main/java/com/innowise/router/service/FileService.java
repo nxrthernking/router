@@ -12,23 +12,23 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Service
 @RequiredArgsConstructor
 public class FileService {
 
     private final MultipartFileMapper mapper;
 
+
     private final FileContentMapper fileContentMapper;
 
     @SneakyThrows
-    public List<File> process(MultipartFile file) {
+    public List<File> parse(MultipartFile file) {
         return ArchiveFileType.of(file.getBytes())
-                .map(s -> s.unzipToFileContentList(file))
+                .map(unzipType -> unzipType.unzipToFileContentList(file))
                 .orElse(mapper.mapToFileList(file))
                 .stream()
                 .map(fileContentMapper::mapToFile)
                 .collect(Collectors.toList());
-
     }
+
 }

@@ -15,7 +15,4 @@ public class FileContentMapper {
                 .build();
     }
 
-    public FileContent mapToFileContent(File file) {
-        return new FileContent(file.getFileName(), file.getFileExtension(), file.getContent());
-    }
 }

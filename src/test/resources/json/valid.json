@@ -1,0 +1,18 @@
+[
+  {
+    "storeName": "adidas",
+    "startDate": "2021-03-17",
+    "endDate": "2021-04-17",
+    "saleId": "11",
+    "customerId": ["1","2","3"],
+    "tin": "20303030"
+  },
+  {
+    "storeName": "nike",
+    "startDate": "2021-03-17",
+    "endDate": "2021-04-17",
+    "saleId": "12",
+    "customerId": ["1","2","3"],
+    "tin": "32213371312"
+  }
+]

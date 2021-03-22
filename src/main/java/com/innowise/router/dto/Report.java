@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Report {
+
     private String storeName;
     private LocalDate startDate;
     private LocalDate endDate;
