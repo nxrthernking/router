@@ -20,9 +20,9 @@ import java.io.File;
 public class XMLValidator {
 
     @SneakyThrows
-    public void validate(XmlReportList reportList) {
+    public boolean validate(XmlReportList reportList) {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        Schema schema = schemaFactory.newSchema(new File("schema/xml/schema.xsd"));
+        Schema schema = schemaFactory.newSchema(new File("src/main/resources/schema/xml/schema.xsd"));
         JAXBContext jaxbContext = JAXBContext.newInstance(XmlReportList.class);
         JAXBSource jaxbSource = new JAXBSource(jaxbContext, reportList);
         Validator validator = schema.newValidator();
@@ -30,7 +30,9 @@ public class XMLValidator {
             validator.validate(jaxbSource);
         } catch (SAXException e) {
             log.error(e.getMessage());
+            return false;
         }
+        return true;
     }
 
 

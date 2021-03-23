@@ -2,6 +2,8 @@ package com.innowise.router;
 
 import com.innowise.router.service.DocumentService;
 import com.innowise.router.service.FileService;
+import com.innowise.router.service.parser.JsonFileParser;
+import com.innowise.router.service.parser.XmlParser;
 import container.PostgresContainer;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
@@ -23,7 +25,11 @@ public abstract class IntegrationTest {
     @Autowired
     protected DocumentService documentService;
 
+    @Autowired
+    protected XmlParser xmlParser;
 
+    @Autowired
+    protected JsonFileParser jsonFileParser;
 
 
 }
