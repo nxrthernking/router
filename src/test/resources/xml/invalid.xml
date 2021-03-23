@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <reports>
     <report>
-        <storeName>str1234</storeName>
+        <storeName>almi</storeName>
         <startDate>2012-12-13</startDate>
         <endDate>2012-12-13</endDate>
         <saleId>1234</saleId>
         <customers>
-            <customerId>1234</customerId>
-            <customerId>12314</customerId>
+            <customerId>12</customerId>
+            <customerId>114</customerId>
         </customers>
         <tin>234</tin>
     </report>
     <report>
-        <storeName>str1234</storeName>
+        <storeName>a</storeName>
         <startDate>2012-12-13</startDate>
         <endDate>2012-12-13</endDate>
         <saleId>1234</saleId>
         <customers>
-            <customerId>1234</customerId>
-            <customerId>12314</customerId>
+            <customerId>134</customerId>
+            <customerId>14</customerId>
         </customers>
-        <tin>234</tin>
     </report>
 </reports>

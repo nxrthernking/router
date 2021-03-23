@@ -14,8 +14,38 @@
                                     </xsd:restriction>
                                 </xsd:simpleType>
                             </xsd:element>
-                            <xsd:element type="xsd:date" name="startDate"/>
-                            <xsd:element type="xsd:date" name="endDate"/>
+
+                            <xsd:element name="startDate" nillable="true">
+                                <xsd:simpleType>
+                                    <xsd:union>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:date"/>
+                                        </xsd:simpleType>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:whiteSpace value="collapse"/>
+                                                <xsd:length value="0"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:union>
+                                </xsd:simpleType>
+                            </xsd:element>
+
+                            <xsd:element name="endDate" nillable="true">
+                                <xsd:simpleType>
+                                    <xsd:union>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:date"/>
+                                        </xsd:simpleType>
+                                        <xsd:simpleType>
+                                            <xsd:restriction base="xsd:string">
+                                                <xsd:whiteSpace value="collapse"/>
+                                                <xsd:length value="0"/>
+                                            </xsd:restriction>
+                                        </xsd:simpleType>
+                                    </xsd:union>
+                                </xsd:simpleType>
+                            </xsd:element>
 
                             <xsd:element name="saleId">
                                 <xsd:simpleType>

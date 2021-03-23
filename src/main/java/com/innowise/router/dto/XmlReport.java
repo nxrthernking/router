@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,8 +19,10 @@ import java.util.List;
 public class XmlReport {
     @XmlElement(required = true)
     private String storeName;
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @XmlElement(required = true)
     private LocalDate startDate;
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @XmlElement(required = true)
     private LocalDate endDate;
     @XmlElement(required = true)
