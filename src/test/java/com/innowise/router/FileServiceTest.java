@@ -1,32 +1,56 @@
 package com.innowise.router;
 
+import com.innowise.router.entity.File;
 import com.innowise.router.helper.Util;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.mock.web.MockMultipartFile;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Stream;
 
-class FileServiceTest extends IntegrationTest {
+public class FileServiceTest extends IntegrationTest {
+    private static final String SRC_TEST_RESOURCES_ARCHIVE_PATH = "src/test/resources/archive/";
 
-    public static List<MockMultipartFile> mockFiles() {
-        final Map<String, String> stringStringMap = Map.of(
-                "test.rar", "src/test/resources/json/archive/test.rar",
-                "zip.zip", "src/test/resources/json/archive/zipTest.zip",
-                "sevenZ.7z", "src/test/resources/json/archive/sevenZTest.7z"
-        );
-        final ArrayList<MockMultipartFile> mockMultipartFiles = new ArrayList<>();
-        stringStringMap.forEach((key, value) -> mockMultipartFiles.add(new MockMultipartFile(key, Util.getBytes(value))));
-        return mockMultipartFiles;
+    private static final String SRC_TEST_RESOURCES_JSON_PATH = "src/test/resources/json/";
+
+    @ParameterizedTest
+    @MethodSource("getArchiveNames")
+    void givenArchive_whenUnzip_thenAssert(final String archiveName) {
+
+        final MockMultipartFile mockMultipartFile = new MockMultipartFile(archiveName,
+                Util.getBytes(SRC_TEST_RESOURCES_ARCHIVE_PATH + archiveName));
+        final File expectedFile = File.builder()
+                .fileName("test.json")
+                .fileExtension("json")
+                .content(Util.getBytes(SRC_TEST_RESOURCES_JSON_PATH + "test.json"))
+                .build();
+
+        Assertions.assertEquals(List.of(expectedFile),fileService.parse(mockMultipartFile));
     }
 
-    // TODO: 22.03.2021 FIX TEST
-    @ParameterizedTest
-    @MethodSource("mockFiles")
-     void givenArchive_whenUnzip_thenAssert(MockMultipartFile multipartFile){
-        Assertions.assertEquals(1,fileService.parse(multipartFile).size());
+
+    @Test
+    void givenNotValidArchive_whenDoNotUnzip_thenNotEquals(){
+        final MockMultipartFile mockMultipartFile = new MockMultipartFile("file.tar",
+                Util.getBytes(SRC_TEST_RESOURCES_ARCHIVE_PATH + "file.tar"));
+
+        final File expectedFile = File.builder()
+                .fileName("file.xml")
+                .fileExtension("xml")
+                .content(Util.getBytes("src/test/resources/xml/file.xml"))
+                .build();
+        Assertions.assertNotEquals(List.of(expectedFile),fileService.parse(mockMultipartFile));
+    }
+
+    private static Stream<Arguments> getArchiveNames() {
+        return Stream.of(
+                Arguments.of("test.rar"),
+                Arguments.of("zipTest.zip"),
+                Arguments.of("sevenZTest.7z")
+        );
     }
 }

@@ -18,7 +18,6 @@ public class FileService {
 
     private final MultipartFileMapper mapper;
 
-
     private final FileContentMapper fileContentMapper;
 
     @SneakyThrows
