@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class File {
 
     @Id
@@ -22,5 +23,6 @@ public class File {
     private String fileExtension;
 
     @Lob
+    @EqualsAndHashCode.Exclude
     private byte[] content;
 }
