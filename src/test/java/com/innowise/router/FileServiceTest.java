@@ -23,6 +23,7 @@ public class FileServiceTest extends IntegrationTest {
 
         final MockMultipartFile mockMultipartFile = new MockMultipartFile(archiveName,
                 Util.getBytes(SRC_TEST_RESOURCES_ARCHIVE_PATH + archiveName));
+
         final File expectedFile = File.builder()
                 .fileName("test.json")
                 .fileExtension("json")
@@ -43,6 +44,7 @@ public class FileServiceTest extends IntegrationTest {
                 .fileExtension("xml")
                 .content(Util.getBytes("src/test/resources/xml/file.xml"))
                 .build();
+
         Assertions.assertNotEquals(List.of(expectedFile),fileService.parse(mockMultipartFile));
     }
 

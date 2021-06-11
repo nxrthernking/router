@@ -1,6 +1,6 @@
 [
   {
-    "storeName": "name",
+    "storeName": "adidas",
     "startDate": "2021-03-17",
     "endDate": "2021-04-17",
     "saleId": "11",
@@ -8,7 +8,7 @@
     "tin": "20303030"
   },
   {
-    "storeName": "name",
+    "storeName": "nike",
     "startDate": "2021-03-17",
     "endDate": "2021-04-17",
     "saleId": "12",
